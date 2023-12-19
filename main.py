@@ -1,15 +1,16 @@
-from turtle import Turtle, Screen
 from board import Board
 from ball import Ball
 from game_platform import Platform
 import time
 
-my_board = Board(1000, 500)
+battle_frame_size_x = 1000
+battle_frame_size_y = 500
+my_board = Board(battle_frame_size_x, battle_frame_size_y)
 
-red_platform = Platform((my_board.screen.screensize()[0] / 2) - 60, 'Up', 'Down', my_board)
+red_platform = Platform((battle_frame_size_x / 2) - 60, 'Up', 'Down', 'red',[+100, battle_frame_size_y / 2 + 10], my_board)
 red_platform.platform_move()
 
-blue_platform = Platform((-my_board.screen.screensize()[0] / 2) + 60, 'w', 's', my_board)
+blue_platform = Platform((-battle_frame_size_x / 2) + 60, 'w', 's', 'blue',[-100, battle_frame_size_y / 2 + 10], my_board)
 blue_platform.platform_move()
 
 my_ball = Ball(my_board, [red_platform, blue_platform])
